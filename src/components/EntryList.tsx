@@ -15,7 +15,7 @@ const EntryList: React.FC<Props> = ({ entries, onDelete, onToggleFavourite }) =>
     if (entries.length === 0) {
         return (
             <div className="text-center">
-                <p className="font-medium">Siin on veel tühi</p>
+                <p className="font-medium text-gray-400">Siin on veel tühi</p>
             </div>
         );
     }
