@@ -26,25 +26,32 @@ const EntryForm: React.FC<Props> = ({ onAdd }) => {
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     placeholder="Millest sa täna mõtled?"/>
-                <div className="flex justify-between items-center">
-                    <div className="flex gap-3 bg-slate-100 p-4 rounded-lg text-center">
-                        {(['Rõõmus', 'Neutraalne', 'Kurb', 'Vihane'] as Mood[]).map((m) => (
-                            <button
-                                key={m}
-                                type="button"
-                                onClick={() => setMood(m)}
-                                className={`h-10 rounded-md flex items-center justify-center transition 
-                                    ${mood === m ? 'bg-white shadow-sm scale-110' : 'hover:bg-white/50'}`}
-                            >
-                                {m}
+
+                <div className="mood-section">
+                    <p className="mood-label">Täna ma olin...</p>
+
+                    <div className="form-footer">
+                        <div className="footer-spacer"></div>
+
+                        <div className="mood-selector-container">
+                            {(['Rõõmus', 'Neutraalne', 'Kurb', 'Vihane'] as Mood[]).map((m) => (
+                                <button
+                                    key={m}
+                                    type="button"
+                                    onClick={() => setMood(m)}
+                                    className={`mood-btn ${mood === m ? 'active' : ''}`}
+                                >
+                                    {m}
+                                </button>
+                            ))}
+                        </div>
+
+                        <div className="footer-actions">
+                            <button type="submit" className="btn-primary">
+                                Salvesta
                             </button>
-                        ))}
+                        </div>
                     </div>
-                    <button
-                        type="submit" className="btn-primary"
-                    >
-                        Salvesta
-                    </button>
                 </div>
             </div>
         </form>

@@ -16,6 +16,7 @@
     outline: none;
     resize: none;
     height: 100px;
+    margin-bottom: 1.5rem;
 }
 
 .entry-form:hover {
@@ -35,4 +36,70 @@
     font-weight: 600;
     border: none;
     cursor: pointer;
+}
+
+.form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer-spacer,
+.footer-actions {
+    flex: 1;
+}
+
+.footer-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.mood-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.mood-label {
+    color: #64748b;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.mood-selector-container {
+    display: flex;
+    gap: 0.75rem;
+    background-color: #f1f5f9;
+    padding: 0.5rem;
+    border-radius: 12px;
+}
+
+.mood-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #64748b;
+    transition: all 0.2s ease;
+}
+
+.mood-btn:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #4f46e5;
+}
+
+.mood-btn.active {
+    background-color: white;
+    color: #4f46e5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transform: scale(1.05);
 }

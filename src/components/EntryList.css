@@ -39,3 +39,7 @@
     border-radius: 1rem;
     color: #64748b;
 }
+
+.mood-name {
+    font-weight: bold;
+}
