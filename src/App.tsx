@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import {JournalEntry, Mood} from "./types";
 import EntryForm from "./components/EntryForm";
 import EntryList from "./components/EntryList";
+import './App.css'
 
 const App: React.FC = () => {
     const [entries, setEntries] = useState<JournalEntry[]>([])
@@ -34,30 +35,21 @@ const App: React.FC = () => {
     }
 
     return (
-        <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans text-slate-800">
-            <div className="max-w-2xl mx-auto">
-                <header className="mb-10 text-center">
-                    <h1 className="text-4xl font-bold text-indigo-600 mb-2">Minu päevik</h1>
+        <div className="app-container">
+            <div className="content-wrapper">
+                <header className="header">
+                    <h1>Minu päevik</h1>
                 </header>
 
                 <EntryForm onAdd={handleAddEntry} />
 
-                <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-xl">Sinu sissekanded</h2>
-                    <div className="space-x-2">
-                        <button
-                            onClick={() => setFilter('all')}
-                        >Kõik</button>
-                        <button
-                            onClick={() => setFilter('favorites')}
-                        >Lemmikud</button>
-                    </div>
+                <div className="section-title">
+                    <h2>Minu mõtted</h2>
                 </div>
 
                 <EntryList
-                    entries={filteredEntries}
-                    onDelete={handleDeleteEntry}
-                    onToggleFavorite={handleToggleFavourite}
+                    entries={entries}
+                    onDelete={(id) => setEntries(entries.filter(e => e.id !== id))}
                 />
             </div>
         </div>
