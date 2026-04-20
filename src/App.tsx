@@ -21,9 +21,11 @@ const App: React.FC = () => {
     }
 
     const handleToggleFavourite = (id: string) => {
-        setEntries(entries.map(e =>
-            e.id === id ? { ...e, isFavorite: !e.isFavorite } : e
-        ))
+        setEntries(prevEntries =>
+            prevEntries.map(entry =>
+                entry.id === id ? { ...entry, isFavorite: !entry.isFavorite } : entry
+            )
+        )
     }
 
     const filteredEntries = filter === 'favorites'
@@ -49,7 +51,8 @@ const App: React.FC = () => {
 
                 <EntryList
                     entries={entries}
-                    onDelete={(id) => setEntries(entries.filter(e => e.id !== id))}
+                    onToggleFavorite={handleToggleFavourite}
+                    onDelete={handleDeleteEntry}
                 />
             </div>
         </div>
