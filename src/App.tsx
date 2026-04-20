@@ -4,6 +4,7 @@ import {JournalEntry, Mood} from "./types";
 import EntryForm from "./components/EntryForm";
 import EntryList from "./components/EntryList";
 import './App.css'
+import {Button} from "react-bootstrap";
 
 const App: React.FC = () => {
     const [entries, setEntries] = useState<JournalEntry[]>([])
@@ -14,7 +15,7 @@ const App: React.FC = () => {
             id: crypto.randomUUID(),
             text,
             mood,
-            isFavorite: false,
+            isFavourite: false,
             createdAt: new Date(),
         }
         setEntries([newEntry, ...entries])
@@ -23,13 +24,13 @@ const App: React.FC = () => {
     const handleToggleFavourite = (id: string) => {
         setEntries(prevEntries =>
             prevEntries.map(entry =>
-                entry.id === id ? { ...entry, isFavorite: !entry.isFavorite } : entry
+                entry.id === id ? { ...entry, isFavourite: !entry.isFavourite } : entry
             )
         )
     }
 
     const filteredEntries = filter === 'favorites'
-        ? entries.filter(e => e.isFavorite)
+        ? entries.filter(e => e.isFavourite)
         : entries
 
     const handleDeleteEntry = (id: string) => {
@@ -48,13 +49,33 @@ const App: React.FC = () => {
                 <div className="section-title">
                     <h2>Minu mõtted</h2>
                 </div>
+                {entries.length > 0 && (
+                    <div className="filter-buttons">
+                        <Button
+                            variant="outline-primary"
+                            onClick={() => setFilter('all')}
+                            className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
+                        >
+                            Kõik
+                        </Button>
+                        <Button
+                            variant="outline-primary"
+                            onClick={() => setFilter('favorites')}
+                            className={`filter-btn ${filter === 'favorites' ? 'active' : ''}`}
+                        >
+                            Lemmikud
+                        </Button>
+                    </div>
+                    )
+                }
 
                 <EntryList
-                    entries={entries}
-                    onToggleFavorite={handleToggleFavourite}
+                    entries={filteredEntries}
+                    onToggleFavourite={handleToggleFavourite}
                     onDelete={handleDeleteEntry}
                 />
             </div>
+
         </div>
     );
 };

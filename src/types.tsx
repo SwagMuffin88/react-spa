@@ -4,6 +4,6 @@ export interface JournalEntry {
     id: string;
     text: string;
     mood: Mood;
-    isFavorite: boolean;
+    isFavourite: boolean;
     createdAt: Date;
 }

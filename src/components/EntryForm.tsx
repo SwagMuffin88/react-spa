@@ -32,7 +32,7 @@ const EntryForm: React.FC<Props> = ({ onAdd }) => {
                     placeholder="Millest sa täna mõtled?"/>
 
                 <div className="mood-section">
-                    <p className="mood-label">Täna ma olin...</p>
+                    <p className="mood-label">Täna ma olen...</p>
 
                     <div className="form-footer">
                         <div className="footer-spacer"></div>

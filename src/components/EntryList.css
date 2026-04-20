@@ -41,14 +41,6 @@
     pointer-events: auto;
 }
 
-.favorite-btn.is-favorite {
-    color: #f43f5e;
-}
-
-.delete-btn:hover {
-    color: #ef4444;
-}
-
 .mood-badge {
     font-weight: 700;
     color: #4f46e5;
@@ -74,4 +66,12 @@
     justify-content: flex-end;
     gap: 0.5rem;
     margin-top: 0.5rem;
+}
+
+.fav-btn.active {
+    color: #ef4444;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
 }
