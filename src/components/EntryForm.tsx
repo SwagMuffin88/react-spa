@@ -8,14 +8,18 @@ interface Props {
 }
 
 const EntryForm: React.FC<Props> = ({ onAdd }) => {
-    const [text, setText] = useState('');
-    const [mood, setMood] = useState<Mood>('Neutraalne');
+    const [text, setText] = useState('')
+    const [mood, setMood] = useState<Mood>('Neutraalne')
 
     const handleSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
-        if (!text.trim()) return;
-        onAdd(text, mood);
-        setText('');
+        if (!text.trim()) {
+            alert("Palun lisa sissekandele tekst!")
+            return
+        }
+
+        onAdd(text, mood)
+        setText('')
     }
 
     return (
